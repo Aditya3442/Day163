@@ -1,0 +1,19 @@
+class Solution {
+    public void leftSideView(Node root , int level , ArrayList<Integer> list){
+        if(root == null)
+          return;
+          
+        if(level == list.size())
+          list.add(root.data);
+          
+        leftSideView(root.left , level + 1 , list);
+        leftSideView(root.right , level + 1 , list);
+    }
+    // Function to return list containing elements of left view of binary tree.
+    ArrayList<Integer> leftView(Node root) {
+        // code here
+        ArrayList<Integer> list = new ArrayList<>();
+        leftSideView(root , 0 , list);
+        return list;
+    }
+}
