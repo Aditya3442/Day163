@@ -1,0 +1,15 @@
+class Solution {
+    public long gridGame(int[][] grid) {
+        long upperRow = 0;
+        for(int i : grid[0])
+            upperRow += i;
+        long lowerRow = 0;
+        long mini = Long.MAX_VALUE;
+        for(int i = 0 ; i < grid[0].length ; i++){
+            upperRow -= grid[0][i];
+            mini = Math.min(mini , Math.max(upperRow , lowerRow));
+            lowerRow += grid[1][i];
+        }
+        return mini;
+    }
+}
